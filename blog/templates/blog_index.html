@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 {% block page_content %}
+{% load markup_tags %}
+
 <div class="col-md-8 offset-md-2">
     <h1>Blog Index</h1>
     <hr>
@@ -14,7 +16,7 @@
         </a>&nbsp;
         {% endfor %}
     </small>
-    <p>{{ post.body | slice:":400" }}...</p>
+    <p>{{ post.body|apply_markup:"markdown" | slice:":400" }}...</p>
     {% endfor %}
 </div>
 {% endblock %}
