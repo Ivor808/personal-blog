@@ -40,7 +40,9 @@ INSTALLED_APPS = [
     'projects',
     'blog',
     'storages',
-    'analytical'
+    'analytical',
+    'pagedown.apps.PagedownConfig',
+    'django_markup'
 ]
 
 MIDDLEWARE = [

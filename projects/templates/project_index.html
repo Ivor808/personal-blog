@@ -1,6 +1,8 @@
 {% extends "base.html" %}
 {% load static %}
 {% block page_content %}
+{% load markup_tags %}
+
 <h1>Projects</h1>
 <div class="row">
 {% for project in projects %}
@@ -9,7 +11,7 @@
             <img class="card-img-top" src="{{ project.image.url }}">
             <div class="card-body">
                 <h5 class="card-title">{{ project.title }}</h5>
-                <p class="card-text">{{ project.description }}</p>
+                <p class="card-text">{{ project.description|apply_markup:"markdown" }}</p>
                 <a href="{% url 'project_detail' project.pk %}"
                    class="btn btn-primary">
                     Read More
